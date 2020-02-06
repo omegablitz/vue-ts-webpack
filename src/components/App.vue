@@ -1,35 +1,37 @@
 <template>
     <div>
-        <div class="greeting">Hello {{exclamationMarks}}</div>
-        <button @click="decrement">-</button>
-        <button @click="increment">+</button>
+        <div class="greeting">Hello {{ exclamationMarks }}</div>
+        <button @click="decrement">
+            -
+        </button>
+        <button @click="increment">
+            +
+        </button>
     </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
+@Component
+export default class App extends Vue {
+    // initial data
+    enthusiam = 5;
 
-export default Vue.extend({
-    data() {
-        return {
-            enthusiasm: 5,
-        }
-    },
-    methods: {
-        increment() { this.enthusiasm++; },
-        decrement() {
-            if (this.enthusiasm > 1) {
-                this.enthusiasm--;
-            }
-        },
-    },
-    computed: {
-        exclamationMarks(): string {
-            return Array(this.enthusiasm + 1).join('!');
-        },
-    },
-});
+    // computed
+    get exclamationMarks(): string {
+        return Array(this.enthusiam + 1).join('!');
+    }
+
+    // methods
+    increment(): void {
+        this.enthusiam++;
+    }
+    decrement(): void {
+        this.enthusiam--;
+    }
+}
 </script>
 
 <style>

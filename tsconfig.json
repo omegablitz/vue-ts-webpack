@@ -4,8 +4,9 @@
         "strictNullChecks": true,
         "lib": ["dom", "es2015"],
         "target": "es5",
+        "experimentalDecorators": true,
     },
     "include": [
         "./src/**/*"
-    ]
+    ],
 }

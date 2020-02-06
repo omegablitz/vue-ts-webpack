@@ -26,6 +26,12 @@ module.exports = {
         }
       },
       {
+        enforce: 'pre',
+        test: /\.(js|ts|vue)$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+      },
+      {
         test: /\.css$/,
         use: [
           'vue-style-loader',
